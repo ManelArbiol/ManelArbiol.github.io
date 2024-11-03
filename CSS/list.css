@@ -1,0 +1,15 @@
+/*----------------------------------------------------------*/
+/*CSS per  canvis especifics del arxiu list.html*/
+/*---------------------------------------------------------*/
+
+
+.article-list li {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+
+.article-list li::marker {
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+}

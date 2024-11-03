@@ -1,0 +1,285 @@
+/*----------------------------------------------------------*/
+/*CSS per  canvis globals y generals per a tots els arxius .html*/
+/*---------------------------------------------------------*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: white;
+    background: url('../src/backgroundSection1.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/*------------------*/
+/* Estil para el nav y header */
+/*------------------*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #333333;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: darkgreen;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s, transform 0.3s;
+}
+
+header h1:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Animación para cambiar el color dels elements */
+@keyframes color-change {
+    0% {
+        color: darkgreen;
+    }
+    50% {
+        color: mediumseagreen;
+    }
+    100% {
+        color: darkolivegreen;
+    }
+}
+
+header h1, nav ul li a, h2 {
+    animation: color-change 3s infinite alternate;
+}
+
+
+main {
+    margin-top: 100px;
+    padding: 10px;
+}
+
+
+section {
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+
+.background-section {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+.background-title {
+    display: inline-block;
+    max-width: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.article-item {
+    width: 30%;
+    box-sizing: border-box;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    border: 2px solid darkred;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    background: white;
+}
+
+.article-item:hover {
+    transform: scale(1.02);
+}
+
+.article-item article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.article-item h3 {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.article-item h3, .article-item p {
+    text-align: center;
+}
+
+.article-item img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 2px solid darkgreen;
+}
+
+.article-item a {
+    color: black;
+    text-decoration: none;
+}
+
+.article-item a:hover {
+    color: darkgreen !important;
+}
+
+ol, ul {
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+li a:hover {
+    color: #555;
+}
+
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: white;
+}
+
+/*Atributs per fer el responsive*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .background-section {
+        padding: 10px;
+    }
+
+    .background-title {
+        margin-right: 10%;
+    }
+
+    .article-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .article-item img {
+        max-width: 90%;
+    }
+
+    ol.article-list .article-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    ol.article-list .article-item img {
+        max-width: 90%;
+    }
+
+    .gallery-images {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gallery-images img {
+        height: auto;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    form button {
+        grid-column: 1;
+    }
+
+}

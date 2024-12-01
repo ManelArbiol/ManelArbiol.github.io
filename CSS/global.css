@@ -1,7 +1,6 @@
 /*----------------------------------------------------------*/
-/*CSS per  canvis globals y generals per a tots els arxius .html*/
+/* CSS per canvis globals i generals per a tots els arxius .html */
 /*---------------------------------------------------------*/
-
 
 * {
     margin: 0;
@@ -9,62 +8,86 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: white;
     background: url('../src/backgroundSection1.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 /*------------------*/
-/* Estil para el nav y header */
+/* Estil per al nav i header */
 /*------------------*/
+
 header {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 100vh;
     z-index: 1000;
-    background: #333333;
+    background: url('../src/bgNature.jpg') no-repeat center center;
+    background-size: cover;
     color: white;
-    padding: 10px 20px;
+    padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    transition: all 1s ease;
 }
 
-header h1 {
-    font-size: 36px;
-    font-weight: bold;
+/*------------------*/
+/* Estil per poder fer l'encongiment amb JS */
+/*------------------*/
+
+header.shrink {
+    height: 70px;
+    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-size: cover;
+}
+
+
+/* Parametres necesaris perque el header es torni fosc una vegada es minimitzi (ho he buscat per internet) */
+header.shrink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    transition: all
+}
+
+/*------------------*/
+/* Efectes visuals per al JS */
+/*------------------*/
+
+header.initial-color h1 {
+    color: darkorange;
+}
+
+header.initial-color nav ul li a {
+    color: darkorange;
+}
+
+header.scroll-color h1 {
     color: darkgreen;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: color 0.3s, transform 0.3s;
 }
 
-header h1:hover {
-    transform: scale(1.1);
+header.scroll-color nav ul li a {
+    color: darkgreen;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
+/*------------------*/
+/* Animació per canviar el color dels elements */
+/*------------------*/
 
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-/* Animación para cambiar el color dels elements */
-@keyframes color-change {
+@keyframes color-effect {
     0% {
         color: darkgreen;
     }
@@ -76,13 +99,49 @@ nav ul li a {
     }
 }
 
-header h1, nav ul li a, h2 {
-    animation: color-change 3s infinite alternate;
+header.shrink h1, header.shrink nav ul li a {
+    animation: color-effect 3s infinite alternate;
 }
 
+h2 {
+    animation: color-effect 3s infinite alternate;
+}
+
+/*------------------*/
+/*------------------*/
+
+
+/*------------------*/
+/* Estils per als elements dins del header */
+/*------------------*/
+
+header h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: green;
+    font-size: 24px;
+}
+
+/*------------------*/
+/* Estils per al main */
+/*------------------*/
 
 main {
-    margin-top: 100px;
+    margin-top: 7%;
     padding: 10px;
 }
 
@@ -93,14 +152,12 @@ section {
     margin-top: 10px;
 }
 
-
 .background-section {
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 5px;
 }
-
 
 .background-title {
     display: inline-block;
@@ -112,6 +169,9 @@ section {
     text-align: center;
 }
 
+/*------------------*/
+/* Estils per als articles */
+/*------------------*/
 
 .article-item {
     width: 30%;
@@ -168,6 +228,10 @@ section {
     color: darkgreen !important;
 }
 
+/*------------------*/
+/* Estils per a llistes */
+/*------------------*/
+
 ol, ul {
     margin-left: 20px;
 }
@@ -186,6 +250,9 @@ li a:hover {
     color: #555;
 }
 
+/*------------------*/
+/* Estils per al footer */
+/*------------------*/
 
 footer {
     background: #333;
@@ -219,7 +286,10 @@ footer ul li a:hover {
     color: white;
 }
 
-/*Atributs per fer el responsive*/
+/*------------------*/
+/* Estils per fer el responsive */
+/*------------------*/
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -281,5 +351,4 @@ footer ul li a:hover {
     form button {
         grid-column: 1;
     }
-
 }

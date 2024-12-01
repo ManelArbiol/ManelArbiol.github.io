@@ -88,6 +88,10 @@ form textarea {
     resize: vertical;
 }
 
+.error{
+    color: red;
+}
+
 .background-section{
     margin-top: 500px;
 }
